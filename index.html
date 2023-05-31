@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <style>
+        body {
+            background-image : url(https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/v563-taus-10-gradientsetidea_1.jpg?w=800&dpr=1&fit=default&crop=default&q=65&vib=3&con=3&usm=15&bg=F4F4F3&ixlib=js-2.2.1&s=12105cd0677da62314fe937486764824);
+            background-repeat: no-repeat;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: transparent;
+            color: #fff;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-right: 10rem;
+            font-size: 1.5rem;
+        }
+
+        .logo {
+            width: 50px;
+            /* height: auto; */
+        }
+
+        nav {
+            background-color: transparent;
+            text-align: right;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 4px;
+            transition: all 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #fff;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #fff;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        nav ul li a:hover::after {
+            transform-origin: left;
+            transform: scaleX(1);
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .image-container {
+            flex: 1;
+            padding-right: 20px;
+        }
+
+        .profile-image {
+            max-width: 60%;
+            height: auto;
+            margin-left: 10%;
+            margin-top: 10%;
+            border-radius: 50%;
+        }
+
+        .description {
+            flex: 1;
+        }
+
+        .description h2 {
+            font-size: 11vh;
+            font-weight: bold;
+            color: rgb(255, 250, 250);
+            margin-top: -5rem;
+            margin-bottom: 10px;
+            margin-left: -8rem;
+            margin-right: 0.5rem;
+        }
+
+        .description p1 {
+            position: absolute;
+            font-size: 16px;
+            top:57%;
+            color: rgb(255, 255, 255);
+            font-size: 1.4rem;
+            line-height: 1.5;
+            margin-left: -8rem;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="image.png" height="100">
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Projects</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="image-container">
+            <img src="290675129_1639246179789782_455000588620795396_n.jpg" alt="Your Image" class="profile-image">
+        </div>
+        <div class="description">
+            <h2 id="name">Ashwin Khasa</h2>
+            
+            <p1>
+                I have a passion for HTML and CSS.
+            </p> 
+            <p>
+                Creating beautiful web designs is my expertise.
+            </p>
+        </div>
+
+    </div>
+    
+    <script>
+        const nameElement = document.getElementById("name");
+        const names = ["Ashwin Khasa :)", "Web Designer :)", "Frontend Dev :)"];
+        let index = 0;
+        let charIndex = 0;
+
+        function typeCharacters() {
+            if (charIndex <= names[index].length) {
+                nameElement.textContent = names[index].substring(0, charIndex);
+                charIndex++;
+                setTimeout(typeCharacters, 100); // Adjust the delay (in milliseconds) to control the typing speed
+            } else {
+                setTimeout(eraseCharacters, 1000); // Delay before erasing the characters
+            }
+        }
+
+        function eraseCharacters() {
+            if (charIndex >= 0) {
+                nameElement.textContent = names[index].substring(0, charIndex);
+                charIndex--;
+                setTimeout(eraseCharacters, 50); // Adjust the delay (in milliseconds) to control the erasing speed
+            } else {
+                index = (index + 1) % names.length;
+                setTimeout(typeCharacters, 500); // Delay before typing the next name
+            }
+        }
+
+        typeCharacters(); // Start typing the first name
+    </script>
+</body>
+</html>
